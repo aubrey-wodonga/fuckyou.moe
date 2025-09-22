@@ -1,7 +1,7 @@
+import type { LayoutLoad } from './$types';
+
 export const csr = false;
-export const load: import('./$types').LayoutLoad = ({ url }) => {
-	const moeParam = url.searchParams.get('moe')?.toString();
-	return {
-		moe: `Fuck you, Moe${moeParam ? ` ${moeParam}` : ''}`
-	};
-};
+
+export const load: LayoutLoad = ({ url }) => ({
+  moe: `Fuck you, Moe${url.searchParams.has('moe') ? ` ${url.searchParams.get('moe')}` : ''}`,
+});

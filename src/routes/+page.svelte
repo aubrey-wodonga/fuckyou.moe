@@ -1,5 +1,6 @@
 <script lang="ts">
-	export let data: import('./$types').PageData;
+  const { data } = $props();
+  const moe = $derived(data.moe);
 </script>
 
-<h1>{data.moe}</h1>
+<h1>{moe}</h1>
